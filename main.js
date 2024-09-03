@@ -3,17 +3,10 @@ let Distancia = document.getElementById("input2");
 let Altura = document.getElementById("input3");
 let resultado = document.querySelector("span.resultado");
 
-let foco;
-let distancia;
-let altura;
-let calculo;
-let tipoImagem;
-let imagem;
-let Calculo2;
-let Calculo3;
+let focoValue = parseInt(Foco.value), distanciaValue = parseInt(Distancia.value), alturaValue = parseInt(Altura.value), 
+altura, calculo, tipoImagem, imagem, Calculo2, Calculo3;
 
 function checkFoco() {
-    let focoValue = parseInt(Foco.value);
     if (focoValue > 0) {
         foco = "Côncavo";
     } else if (focoValue < 0) {
@@ -30,6 +23,13 @@ function checkDistancia() {
     } else {
         distancia = "Quebrará o espelho";
     }
+}
+
+function audioVidro(){
+    var audio = new Audio('');
+    audio.addEventListener('canplaythrough', function() {
+        audio.play();
+    });
 }
 
 function checkAltura() {
@@ -54,7 +54,7 @@ function checkImagem() {
     }
 }
 
-function calcularAmpliação() {
+function calcularAmpliacao() {
     let focoValue = parseInt(Foco.value);
     let distanciaValue = parseInt(Distancia.value);
     
@@ -73,7 +73,7 @@ function calcularAmpliação() {
     }
 }
 
-function calcularAmpliaçãoLente() {
+function calcularAmpliacaoLente() {
     let focoValue = parseInt(Foco.value);
     let distanciaValue = parseInt(Distancia.value);
     
@@ -110,26 +110,37 @@ function alturaDaImagem() {
 }
 
 document.getElementById("buttoncalcular").addEventListener("click", function() {
+    units = document.getElementsByClassName("units");
+    focoValue = convert(focoValue, units[0]);
+    distanciaValue = convert(distanciaValue, units[1]);
+    alturaValue = convert(alturaValue, units[2]);
     checkImagem();
-    calcularAmpliaçãoLente();
+    calcularAmpliacaoLente();
     checkFoco();
     checkDistancia();
     checkAltura();
-    calcularAmpliação();
+    calcularAmpliacao();
     alturaDaImagem();
+    espelhoEstado()
     result();
 });
+
+function espelhoEstado(){
+    if(tipoImagem === "Imagem Imprópria"){
+        document.body.style.backgroundImage = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4NtQNPEQZz4WCfZjV3L76gairQhRKg1RNNQ&s)"
+    }else{
+        document.body.style.backgroundImage = "url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg)"
+    }
+}
 
 function visible(element, display = "block") {
     element.style.visibility = "visible"
     element.style.display = display
 }
 
-function conversoes() {
-    unidades = document.getElementsByClassName("units")
-    valores = [foco, distancia, altura]
-    res = unidades[3];
-    Array(valores).map((valor) => )
+function convert(value, unit) {
+    outputUnit = document.querySelector("#units-res");
+    return value * unit/outputUnit
 }
 
 function result() {
