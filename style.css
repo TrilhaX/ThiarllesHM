@@ -31,7 +31,7 @@ select,
 button {
     display: flex;
     margin-top: 5px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -53,6 +53,14 @@ button:hover {
     background-color: #a30000;
 }
 
+.containerGeral{
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .container {
     display: flex;
     flex-direction: row;
@@ -62,6 +70,27 @@ button:hover {
     background-color: rgba(166, 166, 225, 0.728);
     width: 100%;
     max-width: 600px;
+}
+
+.container2 {
+    display: none;
+    visibility: hidden;
+    flex-direction: row;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 5px 30px;
+    background-color: rgba(166, 166, 225, 0.728);
+    width: 100%;
+    height: 35vh;
+    max-width: 600px;
+}
+
+.animationMirror{
+    justify-content: center;
+}
+
+.textMirror{
+    font-weight: bold;
 }
 
 .inputs {
@@ -83,29 +112,31 @@ label {
     justify-self: left;
 }
 
-#calculoTipo {
-    margin-bottom: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    justify-content: center;
+.animationMirror{
+    display: flex;
+    position: relative;
 }
 
 #main-inputs-container {
     width: 100%;
 }
 
-.resultado {
+div.resultado {
+    display: none;
+    visibility: hidden;
+    padding: 0 0 0 25px;
+}
+
+h1.resultado {
     display: none;
     visibility: hidden;
     text-align: center;
-    padding: 0 0 0 20px;
+    font-weight: bold;
 }
 
 span.resultado {
     border: 1px solid black;
     border-radius: 10px;
-    padding: 5px;
     margin-bottom: 5px;
     text-align: center;
     line-height: 1.5;
@@ -115,4 +146,11 @@ span.resultado {
 #units-res {
     color: #fff;
     background-color: #8f2d2d;
+}
+
+.erro {
+    display: none;
+    visibility: hidden;
+    font-size: 20px;
+    font-weight: bold;
 }

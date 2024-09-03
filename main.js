@@ -104,7 +104,7 @@ document.getElementById("buttoncalcular").addEventListener("click", function() {
 
 function espelhoEstado(){
     if(tipoImagem === "Imagem Imprópria"){
-        document.body.style.backgroundImage = "url(imagens/images.jpg)"
+        document.body.style.backgroundImage = "url(imagens/stunning-quality-broken-glass-screen-jvjif5953xa0pigc.jpg)"
         var audio = new Audio("audios/breaking-glass-83809.mp3");
         audio.play();
     }else{
@@ -123,20 +123,30 @@ function convert(value, unit) {
 }
 
 function result() {
-    visible(document.querySelector("span.resultado"))
-    visible(document.querySelector("div.resultado"))
-    visible(document.querySelector("h1.resultado"))
+    let error = document.querySelector(".erro");
+    let errorH1 = document.querySelector("h1.erro");
     if (Foco.value && Distancia.value && Altura.value) {
+        visible(document.querySelector("span.resultado"))
+        visible(document.querySelector("div.resultado"))
+        visible(document.querySelector("h1.resultado"))
+        visible(document.querySelector(".container2"))
+        error.style.visibility = "hidden"
+        errorH1.style.visibility = "hidden"
+        error.style.display = "none"
+        errorH1.style.display = "none"
         let resultEstado = document.getElementById("main-inputs-container")
         resultEstado.style.width = "max-content";
         espelhoEstado();
-        return resultado.innerHTML = `Tipo de espelho: ${foco.toLocaleString('pt-br')}<br>
-        Distância Apropriada?: ${distancia.toLocaleString('pt-br')}<br>
-        Altura do Objeto: ${altura.toLocaleString('pt-br')}<br>
-        Ampliação do Espelho: ${calculo.toLocaleString('pt-br')}<br>
-        Tipo da imagem: ${tipoImagem}<br>
-        Ampliação de Lente: ${Calculo2}<br>
-        A altura da imagem é: ${Calculo3}`;
+        return resultado.innerHTML = `Tipo de espelho: ${foco.toLocaleString('pt-br')}.<br>
+        Distância Apropriada?: ${distancia.toLocaleString('pt-br')}.<br>
+        Altura do Objeto: ${altura.toLocaleString('pt-br')}.<br>
+        Ampliação do Espelho: ${calculo.toLocaleString('pt-br')}.<br>
+        Tipo da imagem: ${tipoImagem}.<br>
+        Ampliação de Lente: ${Calculo2}.<br>
+        A altura da imagem é: ${Calculo3}.`;
+    }else{
+        visible(document.querySelector(".erro"));
+        visible(document.querySelector("h1.erro"));
+        errorH1.innerHTML = "Preencha todos os campos!!"
     }
-    resultado.innerHTML = "Preencha todos os campos!!";
 }
