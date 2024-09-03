@@ -11,15 +11,60 @@
 <body>
     <div class="container">
         <div id="input1Div">
-            <input id="input1" type="number" placeholder="Digite o Foco">
-            <input id="input2" type="number" placeholder="Digite a Distância do objeto ao espelho">
-            <input id="input3" type="number" placeholder="Digite a altura do objeto">
+            <label for="input1" class="toLeft">Foco:</label>
+            <div class="inputs">
+                <input id="input1" type="number" placeholder="Digite o Foco">
+                <select name="units1" id="units1" class="units">
+                    <option value="">cm</option>
+                    <option value="">m</option>
+                    <option value="">km</option>
+                    <option value="">ft</option>
+                    <option value="">yd</option>
+                    <option value="">mi</option>
+                </select>
+            </div>
+            
+            <label for="input2" class="toLeft">Distância do objeto:</label>
+            <div class="inputs">
+                <input id="input2" type="number" placeholder="Digite a Distância do objeto ao espelho">
+                <select name="units1" id="units2" class="units">
+                    <option value="1">cm</option>
+                    <option value="100">m</option>
+                    <option value="100000">km</option>
+                    <option value="30.48">ft</option>
+                    <option value="91.44">yd</option>
+                    <option value="160934.4">mi</option>
+                </select>
+            </div>
+
+            <label for="input3" class="toLeft">Altura do objeto:</label>
+            <div class="inputs">
+                <input id="input3" type="number" placeholder="Digite a altura do objeto">
+                <select name="units1" id="units3" class="units">
+                    <option value="">cm</option>
+                    <option value="">m</option>
+                    <option value="">km</option>
+                    <option value="">ft</option>
+                    <option value="">yd</option>
+                    <option value="">mi</option>
+                </select>
+            </div>
         </div>
         
-        <button id="buttoncalcular">Calcular</button>
+        <div class="inputs">
+            <button id="buttoncalcular">Calcular</button>
+            <select name="units1" id="units-res" class="units">
+                <option value="1">cm</option>
+                <option value="100">m</option>
+                <option value="100000">km</option>
+                <option value="30.48">ft</option>
+                <option value="91.44">yd</option>
+                <option value="160934.4">mi</option>
+            </select>
+        </div>
 
-        <h1>Resultado:</h1>
-        <span id="resultado"></span>        
+        <h1 class="resultado">Resultado:</h1>
+        <span class="resultado"></span>        
     </div>
 </body>
 </html>

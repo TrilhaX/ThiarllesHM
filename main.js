@@ -1,7 +1,7 @@
 let Foco = document.getElementById("input1");
 let Distancia = document.getElementById("input2");
 let Altura = document.getElementById("input3");
-let resultado = document.getElementById("resultado");
+let resultado = document.querySelector("span.resultado");
 
 let foco;
 let distancia;
@@ -120,8 +120,19 @@ document.getElementById("buttoncalcular").addEventListener("click", function() {
     result();
 });
 
+function visible(element, display = "block") {
+    element.style.visibility = "visible"
+    element.style.display = display
+}
+
+function conversoes() {
+    unidades = document.getElementsByClassName("units")
+}
+
 function result() {
-    if (Foco.value !== "" && Distancia.value !== "" && Altura.value !== "") {
+    visible(document.querySelector("h1.resultado"))
+    visible(resultado)
+    if (Foco.value && Distancia.value && Altura.value) {
         resultado.innerHTML = `Tipo de espelho: ${foco}<br>Distância Apropriada?: ${distancia}<br>Altura do Objeto: ${altura}<br>Ampliação do Espelho: ${calculo}<br>Tipo da imagem: ${tipoImagem}<br>Ampliação de Lente: ${Calculo2}<br> A altura da imagem é: ${Calculo3}`;
     } else {
         resultado.innerHTML = "Preencha todos os campos!!";

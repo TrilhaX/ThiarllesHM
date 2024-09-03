@@ -9,53 +9,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: black
-}
-
-
-.container {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: #fff;
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-}
-
-#calculoTipo {
-    margin-bottom: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    justify-content: center;
-}
-
-
-input,
-button {
-    display: block;
-    margin: 10px auto;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: calc(100% - 22px);
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-button {
-    cursor: pointer;
-    background-color: #007bff;
-    color: #fff;
-    border: 1px solid #007bff;
-}
-
-button:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+    min-height: 100vh;
+    padding: 1rem;
+    background-image: url(
+        https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg
+        );
+    background-size: 100%;
+    /* background: linear-gradient(217deg, #ee9e5d, rgba(255,0,0,0) 70.71%),
+    linear-gradient(127deg, #eeb926, rgba(0,255,0,0) 70.71%),
+    linear-gradient(336deg, #da2c74, rgba(0,0,255,0) 70.71%); */
 }
 
 h1 {
@@ -66,12 +28,86 @@ h1 {
     display: block;
 }
 
-#resultado {
-    border-radius: 10px;
-    border: 1px solid black;
+input,
+select,
+button {
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 25px;
     padding: 10px;
-    margin-bottom: 20px;
-    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+button {
+    cursor: pointer;
+    background-color: #e61c1c;
+    color: #fff;
+    transition: .5s;
+    justify-content: center;
+}
+
+button:hover {
+    transition: .5s;
+    background-color: #a30000;
+}
+
+.container {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 20px 30px;
+    background-color: rgba(219, 189, 238, 0.8);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: row;
+}
+
+label {
+    font-weight: bold;
+}
+
+.units {
+    margin-left: 1rem;
+    width: 8rem;
+}
+
+.toLeft {
+    display: flex;
+    justify-self: left;
+}
+
+#calculoTipo {
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    justify-content: center;
+}
+
+.resultado {
+    display: none;
+    visibility: hidden;
+}
+
+span.resultado {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
     text-align: center;
     line-height: 1.5;
+    background: linear-gradient(#fdecd6, #f5e1ee);
+}
+
+#units-res {
+    color: #fff;
+    background-color: #8f2d2d;
 }
