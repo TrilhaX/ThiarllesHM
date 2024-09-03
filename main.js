@@ -127,6 +127,9 @@ function visible(element, display = "block") {
 
 function conversoes() {
     unidades = document.getElementsByClassName("units")
+    valores = [foco, distancia, altura]
+    res = unidades[3];
+    Array(valores).map((valor) => )
 }
 
 function result() {
