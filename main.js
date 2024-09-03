@@ -17,7 +17,6 @@ function checkFoco() {
 }
 
 function checkDistancia() {
-    let distanciaValue = parseInt(Distancia.value);
     if (distanciaValue > 0) {
         distancia = "Possível ser feito";
     } else {
@@ -25,15 +24,7 @@ function checkDistancia() {
     }
 }
 
-function audioVidro(){
-    var audio = new Audio('');
-    audio.addEventListener('canplaythrough', function() {
-        audio.play();
-    });
-}
-
 function checkAltura() {
-    let alturaValue = parseInt(Altura.value);
     if (alturaValue > 0) {
         altura = "Objeto Para Cima";
     } else if (alturaValue < 0) {
@@ -44,9 +35,6 @@ function checkAltura() {
 }
 
 function checkImagem() {
-    let focoValue = parseInt(Foco.value);
-    let distanciaValue = parseInt(Distancia.value);
-    
     if (focoValue === distanciaValue) {
         imagem = "Imagem Imprópria";
     } else {
@@ -55,9 +43,6 @@ function checkImagem() {
 }
 
 function calcularAmpliacao() {
-    let focoValue = parseInt(Foco.value);
-    let distanciaValue = parseInt(Distancia.value);
-    
     if (focoValue !== distanciaValue) {
         calculo = (focoValue * distanciaValue) / (focoValue - distanciaValue);
         if (calculo > 0) {
@@ -74,9 +59,6 @@ function calcularAmpliacao() {
 }
 
 function calcularAmpliacaoLente() {
-    let focoValue = parseInt(Foco.value);
-    let distanciaValue = parseInt(Distancia.value);
-    
     if (focoValue !== distanciaValue) {
         let calculoLente = (focoValue * distanciaValue) / (focoValue - distanciaValue);
         let calculo2 = (-calculoLente / distanciaValue);
@@ -94,10 +76,6 @@ function calcularAmpliacaoLente() {
 }
 
 function alturaDaImagem() {
-    let focoValue = parseInt(Foco.value);
-    let distanciaValue = parseInt(Distancia.value);
-    let alturaValue = parseInt(Altura.value);
-    
     if (focoValue !== distanciaValue) {
         let calculoLente = (focoValue * distanciaValue) / (focoValue - distanciaValue);
         let calculo2 = (-calculoLente / distanciaValue);
@@ -111,9 +89,9 @@ function alturaDaImagem() {
 
 document.getElementById("buttoncalcular").addEventListener("click", function() {
     units = document.getElementsByClassName("units");
-    focoValue = convert(focoValue, units[0]);
-    distanciaValue = convert(distanciaValue, units[1]);
-    alturaValue = convert(alturaValue, units[2]);
+    focoValue = convert(Foco.value, units[0].value);
+    distanciaValue = convert(Distancia.value, units[1].value);
+    alturaValue = convert(Altura.value, units[2].value);
     checkImagem();
     calcularAmpliacaoLente();
     checkFoco();
@@ -127,9 +105,11 @@ document.getElementById("buttoncalcular").addEventListener("click", function() {
 
 function espelhoEstado(){
     if(tipoImagem === "Imagem Imprópria"){
-        document.body.style.backgroundImage = "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4NtQNPEQZz4WCfZjV3L76gairQhRKg1RNNQ&s)"
+        document.body.style.backgroundImage = "url(imagens/images.jpg)"
+        var audio = new Audio("audios/breaking-glass-83809.mp3");
+        audio.play();
     }else{
-        document.body.style.backgroundImage = "url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg)"
+        document.body.style.backgroundImage = "url(imagens/pexels-pixabay-531880.jpg)"
     }
 }
 
@@ -139,7 +119,7 @@ function visible(element, display = "block") {
 }
 
 function convert(value, unit) {
-    outputUnit = document.querySelector("#units-res");
+    outputUnit = document.querySelector("#units-res").value;
     return value * unit/outputUnit
 }
 

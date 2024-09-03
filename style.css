@@ -11,9 +11,7 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
-    background-image: url(
-        https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg
-        );
+    background-image: url(imagens/pexels-pixabay-531880.jpg);
     background-size: 100%;
     /* background: linear-gradient(217deg, #ee9e5d, rgba(255,0,0,0) 70.71%),
     linear-gradient(127deg, #eeb926, rgba(0,255,0,0) 70.71%),
@@ -56,10 +54,10 @@ button:hover {
 }
 
 .container {
-    border: 2px solid #ccc;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 20px 30px;
-    background-color: rgba(219, 189, 238, 0.8);
+    background-color: rgba(166, 166, 225, 0.728);
     width: 100%;
     max-width: 600px;
     text-align: center;
@@ -76,7 +74,7 @@ label {
 
 .units {
     margin-left: 1rem;
-    width: 8rem;
+    width: 4rem;
 }
 
 .toLeft {
