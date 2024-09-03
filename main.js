@@ -61,14 +61,14 @@ function calcularAmpliacao() {
 function calcularAmpliacaoLente() {
     if (focoValue !== distanciaValue) {
         let calculoLente = (focoValue * distanciaValue) / (focoValue - distanciaValue);
-        let calculo2 = (-calculoLente / distanciaValue);
+        let calculo2 = -calculoLente / distanciaValue;
 
         if (calculo2 > 0 && calculo2 !== 1) {
-            Calculo2 = `Imagem Direita, A imagem é ${calculo2} vezes a altura do objeto.`;
+            Calculo2 = `Imagem Direita<br>A imagem é ${calculo2.toLocaleString('pt-br')} vezes a altura do objeto.`;
         } else if (calculo2 === 1) {
-            Calculo2 = `Imagem Direita, A imagem é igual a altura do objeto.`;
+            Calculo2 = `Imagem Direita<br>A imagem é igual a altura do objeto.`;
         } else {
-            Calculo2 = `Imagem Invertida, A imagem é ${calculo2} vezes a altura do objeto.`;
+            Calculo2 = `Imagem Invertida<br>A imagem é ${calculo2.toLocaleString('pt-br')} vezes a altura do objeto.`;
         }
     } else {
         Calculo2 = "Imagem Imprópria";
@@ -78,10 +78,10 @@ function calcularAmpliacaoLente() {
 function alturaDaImagem() {
     if (focoValue !== distanciaValue) {
         let calculoLente = (focoValue * distanciaValue) / (focoValue - distanciaValue);
-        let calculo2 = (-calculoLente / distanciaValue);
+        let calculo2 = -calculoLente / distanciaValue;
         let calculo3 = calculo2 * alturaValue;
 
-        Calculo3 = calculo3;
+        Calculo3 = calculo3.toLocaleString('pt-br');
     } else {
         Calculo3 = "Imagem Imprópria";
     }
@@ -99,7 +99,6 @@ document.getElementById("buttoncalcular").addEventListener("click", function() {
     checkAltura();
     calcularAmpliacao();
     alturaDaImagem();
-    espelhoEstado()
     result();
 });
 
@@ -124,11 +123,20 @@ function convert(value, unit) {
 }
 
 function result() {
+    visible(document.querySelector("span.resultado"))
+    visible(document.querySelector("div.resultado"))
     visible(document.querySelector("h1.resultado"))
-    visible(resultado)
     if (Foco.value && Distancia.value && Altura.value) {
-        resultado.innerHTML = `Tipo de espelho: ${foco}<br>Distância Apropriada?: ${distancia}<br>Altura do Objeto: ${altura}<br>Ampliação do Espelho: ${calculo}<br>Tipo da imagem: ${tipoImagem}<br>Ampliação de Lente: ${Calculo2}<br> A altura da imagem é: ${Calculo3}`;
-    } else {
-        resultado.innerHTML = "Preencha todos os campos!!";
+        let resultEstado = document.getElementById("main-inputs-container")
+        resultEstado.style.width = "max-content";
+        espelhoEstado();
+        return resultado.innerHTML = `Tipo de espelho: ${foco.toLocaleString('pt-br')}<br>
+        Distância Apropriada?: ${distancia.toLocaleString('pt-br')}<br>
+        Altura do Objeto: ${altura.toLocaleString('pt-br')}<br>
+        Ampliação do Espelho: ${calculo.toLocaleString('pt-br')}<br>
+        Tipo da imagem: ${tipoImagem}<br>
+        Ampliação de Lente: ${Calculo2}<br>
+        A altura da imagem é: ${Calculo3}`;
     }
+    resultado.innerHTML = "Preencha todos os campos!!";
 }

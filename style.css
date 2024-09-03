@@ -54,13 +54,14 @@ button:hover {
 }
 
 .container {
+    display: flex;
+    flex-direction: row;
     border: 2px solid #000000;
     border-radius: 8px;
     padding: 20px 30px;
     background-color: rgba(166, 166, 225, 0.728);
     width: 100%;
     max-width: 600px;
-    text-align: center;
 }
 
 .inputs {
@@ -90,9 +91,15 @@ label {
     justify-content: center;
 }
 
+#main-inputs-container {
+    width: 100%;
+}
+
 .resultado {
     display: none;
     visibility: hidden;
+    text-align: center;
+    padding: 0 0 0 20px;
 }
 
 span.resultado {
