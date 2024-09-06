@@ -129,7 +129,6 @@ function result() {
         visible(document.querySelector("span.resultado"))
         visible(document.querySelector("div.resultado"))
         visible(document.querySelector("h1.resultado"))
-        visible(document.querySelector(".container2"))
         error.style.visibility = "hidden"
         errorH1.style.visibility = "hidden"
         error.style.display = "none"
